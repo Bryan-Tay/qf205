@@ -38,4 +38,6 @@ def trinomial_tree(S, K, r, q, t, T, sigma, N):
                 temp.append(value)
 
             array2 = temp
+
+            
     return(round(array2[0],2))

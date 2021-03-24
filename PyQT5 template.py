@@ -6,8 +6,6 @@ import pandas as pd
 import numpy as np
 
 
-
-
 qtCreatorFile = "FromQtDesigner.ui"
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
@@ -21,7 +19,7 @@ class Main(QMainWindow, Ui_MainWindow):
         self.resize(250, 150)
         self.move(300,300)
         self.setWindowTitle('Simple')
-        
+
 
     # more functions/methods        
     
