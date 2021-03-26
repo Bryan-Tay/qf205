@@ -43,14 +43,14 @@
    <widget class="QLabel" name="Title">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>170</x>
       <y>50</y>
-      <width>303</width>
+      <width>351</width>
       <height>33</height>
      </rect>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; text-decoration: underline;&quot;&gt;Option Price Calculator&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt; font-weight:600; text-decoration: underline;&quot;&gt;Option Pricing Calculator&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="YieldRate">
@@ -236,19 +236,6 @@
      <string>Implicit</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="InputExtract">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>160</y>
-      <width>117</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Extract Data</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="InputSigma">
     <property name="geometry">
      <rect>
@@ -305,8 +292,8 @@
    <widget class="QPushButton" name="InputCalculate">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>670</y>
+      <x>280</x>
+      <y>660</y>
       <width>113</width>
       <height>32</height>
      </rect>
@@ -318,27 +305,30 @@
    <widget class="QLabel" name="OutputText">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>710</y>
-      <width>171</width>
-      <height>31</height>
+      <x>260</x>
+      <y>700</y>
+      <width>151</width>
+      <height>41</height>
      </rect>
     </property>
+    <property name="whatsThis">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="text">
-     <string/>
+     <string>  </string>
     </property>
    </widget>
-   <widget class="QPushButton" name="InputReset">
+   <widget class="QPushButton" name="InputExtract">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>670</y>
+      <x>290</x>
+      <y>160</y>
       <width>113</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
-     <string>Reset</string>
+     <string>Extract Data</string>
     </property>
    </widget>
   </widget>

@@ -9,7 +9,7 @@ N = 3 # number of steps
 t = T/N
 sigma = 0.2
 
-print(trinomial_tree(S, K, r, q, t, T, sigma, N))
+print(trinomial_tree(S, K, r, q, T, sigma, N))
 #Ans = 8.86
 
 

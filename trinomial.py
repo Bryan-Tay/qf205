@@ -3,8 +3,9 @@ import copy
 import numpy as np
 import math
 
-def trinomial_tree(S, K, r, q, t, T, sigma, N):
+def trinomial_tree(S, K, r, q, T, sigma, N):
 
+    t = T/N
     u = np.exp(sigma*math.sqrt(3 * t))
     d = 1/u
     pu = np.sqrt( ( t / (12* sigma**2) )) * (r -  ( (sigma**2)/2) ) + 1/6 
