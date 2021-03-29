@@ -5,7 +5,7 @@ from trinomial import *
 from ExtractingData import *
 from MainWindow import Ui_MainWindow
 
-qtCreatorFile = "Options.ui"
+qtCreatorFile = "Options_trinomial.ui"
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 class Main(QMainWindow, Ui_MainWindow):
