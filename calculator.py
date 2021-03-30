@@ -1,30 +1,36 @@
 import sys
-from PyQt5 import uic
+from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication, QRadioButton
 from trinomial import *
 from ExtractingData import *
 from MainWindow import Ui_MainWindow
 
-qtCreatorFile = "Options_trinomial.ui"
+import gui
+
+qtCreatorFile = "calculator.ui"
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 class Main(QMainWindow, Ui_MainWindow):
     def __init__(self):        
         super().__init__()
-        self.setupUi(self)
+        self.ui = gui.Ui_MainWindow()
+        self.ui.setupUi(self)
         self.setWindowTitle("Options Calculator")
-
-        self.InputCalculate.clicked.connect(self.hello)
-        self.InputExtract.clicked.connect(self.Extract)
-
-        # resets the input when the button is clicked
-        self.InputReset.clicked.connect(self.clearall)
+        # self.pushButton = QtWidgets.QPushButton(self.Implicit_Explicit)
+        self.Trinomial.clicked.connect(self.hello)
 
 
+    def page_update(self):
+        index = self.ui.list
+
+    
 
     def hello(self):
-        print('Hello button works')
-        self.check()
+        print('Hello tab is clicked implicit')
+        # self.Stack.setCurrentIndex(i)
+        # self.check()
+        print(self.setupUi.CurrentIndex())
+
 
     def check(self):
         if self.InputImplicitButton.isChecked():
