@@ -1,4 +1,4 @@
-from  trinomial import trinomial_tree
+from  trinomial_formula import trinomial_tree
 
 S = 100.00 # spot price
 K = 101.00 # strike price
