@@ -3,7 +3,6 @@ from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
 from trinomial_formula import *
 from ExtractingData import *
-from MainWindow import Ui_MainWindow
 
 
 qtCreatorFile = "trinomial.ui"
