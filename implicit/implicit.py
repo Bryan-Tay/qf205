@@ -1,19 +1,18 @@
 import sys
 from PyQt5 import uic, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QApplication
-from trinomial_formula import *
+from implicit_formula import *
 from ExtractingData import *
-from MainWindow import Ui_MainWindow
 
 
-qtCreatorFile = "trinomial.ui"
+qtCreatorFile = "implicit.ui"
 Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 class Main(QMainWindow, Ui_MainWindow):
     def __init__(self):        
         super().__init__()
         self.setupUi(self)
-        self.setWindowTitle("Trinomial Options Calculator")
+        self.setWindowTitle("Implicit Options Calculator")
 
         #This line calls the extract function which fills in the historical data
         self.InputExtract.clicked.connect(self.Extract)
@@ -35,6 +34,7 @@ class Main(QMainWindow, Ui_MainWindow):
         self.InputStepsN.setText('')
         self.InputTimePeriod.setText('')
         self.InputStrikePrice.setText('')
+        self.InputStepsM.setText('')
         self.OutputText.setText('')
 
 
@@ -49,6 +49,16 @@ class Main(QMainWindow, Ui_MainWindow):
         self.InputSigma.setText(str(round(input_sigma,10)))
         self.InputYieldRate.setText(str(round(input_yield_rate,10)))
     
+    def check(self):
+        call = 1
+        if self.InputCallButton.isChecked():
+            call = 1
+            print('call is check')
+        if self.InputPutButton.isChecked():
+            call = 0
+            print('put is checked')
+
+        return call
 
     def VCalculate(self,):
         S=float(self.InputStockPrice.text())
@@ -58,10 +68,11 @@ class Main(QMainWindow, Ui_MainWindow):
         T=float(self.InputTimePeriod.text())
         sigma=float(self.InputSigma.text())
         N=int(self.InputStepsN.text())
-        call=0
-        
+        M = int(self.InputStepsM.text())
+        call = self.check()
+
         #calculate the trinomial tree and return that value in the UI
-        result = trinomial_tree(S, K, r, q, T, sigma, N)
+        result = round(Implicit(S, K, r, q, T, sigma, M, N, call),2)
         self.OutputText.setText(str(result))
 
 if __name__ == '__main__':

@@ -58,7 +58,6 @@ class Main(QMainWindow, Ui_MainWindow):
         T=float(self.InputTimePeriod.text())
         sigma=float(self.InputSigma.text())
         N=int(self.InputStepsN.text())
-        call=0
         
         #calculate the trinomial tree and return that value in the UI
         result = trinomial_tree(S, K, r, q, T, sigma, N)
