@@ -1,11 +1,17 @@
+
+for i in range(0, 5):
+    print(i)
+
+
+
+
 print(0)
 print(1)
 print(2)
 print(3)
 print(4)
 
-for i in range(0, 5):
-    print(i)
+
 
 '''
 >>> 0
