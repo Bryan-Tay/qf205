@@ -24,33 +24,30 @@ def rf_rate():
     return rate_now
 
 def historical_dividends(ticker):
-    while True:
-        try:
-            histdivs = pd.read_html(f'https://finance.yahoo.com/quote/{ticker}/history?period1={d4}&period2={d3}&interval=div%7Csplit&filter=div&frequency=1mo')
-            histdivs=histdivs[0]
-            histdivs.drop(histdivs.tail(1).index,inplace=True)
-            histdivs.drop(columns = ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4',
-                            'Unnamed: 5', 'Unnamed: 6'], inplace= True)
-            histdivs['Dividends']= histdivs['Dividends'].apply(lambda x: x.replace('Dividend',''))
-            histdivs['Dividends']= histdivs['Dividends'].astype(float)
-            histdivs['Date'] = pd.to_datetime(histdivs['Date'])
-            return histdivs
-        except KeyError:
-            return ""
+    try:
+        histdivs = pd.read_html(f'https://finance.yahoo.com/quote/{ticker}/history?period1={d4}&period2={d3}&interval=div%7Csplit&filter=div&frequency=1mo')
+        histdivs=histdivs[0]
+        histdivs.drop(histdivs.tail(1).index,inplace=True)
+        histdivs.drop(columns = ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4',
+                        'Unnamed: 5', 'Unnamed: 6'], inplace= True)
+        histdivs['Dividends']= histdivs['Dividends'].apply(lambda x: x.replace('Dividend',''))
+        histdivs['Dividends']= histdivs['Dividends'].astype(float)
+        histdivs['Date'] = pd.to_datetime(histdivs['Date'])
+        return histdivs
+    except KeyError:
+        return ""
 
 def dividend_yield(ticker):
-    while True:
-        try:
-            divs = historical_dividends(ticker)
-            curdiv = divs['Dividends'][0]
-            numerator = curdiv*4 #annualizing current dividends
-            price_now = stock_price(ticker)
-            dyr=numerator/price_now
-            return dyr
-            break
-        except TypeError:
-            return 0
-        
+    try:
+        divs = historical_dividends(ticker)
+        curdiv = divs['Dividends'][0]
+        numerator = curdiv*4 #annualizing current dividends
+        price_now = stock_price(ticker)
+        dyr=numerator/price_now
+        return dyr
+    except TypeError:
+        return 0
+    
 def sd(ticker):
     prices = pd.DataFrame(wb.get_data_yahoo(ticker,date_one_year_ago,interval = 'd')['Adj Close'])
     hist_r = ((prices['Adj Close']/prices['Adj Close'].shift(-1))-1)
